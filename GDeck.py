@@ -18,7 +18,7 @@ class Deck:
 
     def __init__(self):
         """ Instantiate a deck that has card objects. """
-        self.cards = [f'{Card(suit, rank)}' for suit in Deck.suits for rank in Deck.ranks]
+        self.cards = [Card(suit, rank) for suit in Deck.suits for rank in Deck.ranks]
         self.ctr = 0
 
     def __iter__(self):
