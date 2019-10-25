@@ -1,4 +1,5 @@
 from GDeck import *
+import pytest
 
 test_suits = ['Diamonds', 'Hearts', 'Spades', 'Clubs']
 test_ranks = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King']
@@ -18,5 +19,12 @@ def test_deck():
     assert f'{Deck()[0]}' == 'Ace of Diamonds'
     assert f'{next(Deck())}' == f'{Deck.ranks[0]} of {Deck.suits[0]}'
     assert len(Deck()) == 52
+    assert iter(Deck())
+    with pytest.raises(StopIteration):
+        deck = Deck()
+        for i in iter(Deck()):
+            next(deck)
+        next(deck)
+
 
 

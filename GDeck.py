@@ -13,13 +13,16 @@ class Card:
 
 class Deck:
     """ Deck class that contains objects from the Card class. """
-    suits = ['Diamonds', 'Hearts', 'Spades', 'Clubs']
+    suits = ['Diamonds', 'Hearts', 'Spades',  'Clubs']
     ranks = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King']
 
     def __init__(self):
         """ Instantiate a deck that has card objects. """
         self.cards = [f'{Card(suit, rank)}' for suit in Deck.suits for rank in Deck.ranks]
         self.ctr = 0
+
+    def __iter__(self):
+        return self
 
     def __next__(self):
         """ Identify the next card in the deck in order. """
